@@ -211,31 +211,6 @@ body {
     padding: 5px 10px;
 }
 
-.collection-status {
-    position: absolute;
-    top: 50%; /* Ровно по центру высоты */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    letter-spacing: 6px;
-    color: #fff;
-    opacity: 0.6;
-    z-index: 100;
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* Тонкая линия-указатель под надписью */
-.collection-status::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 60px; /* Длинная игла */
-    background: linear-gradient(to bottom, #fff, transparent);
-    margin: 20px auto 0;
-}
-
     
 @keyframes glitch {
     0% { transform: translateX(0); }
@@ -259,11 +234,6 @@ footer {
     <div class="title-brand">Victorian<br>Gopnik Couture</div>
     <div class="title-issue">ISSUE 01</div>
 </div>
-
-<div class="collection-status">
-    NEW COLLECTION // 2024
-</div>
-
 
 <section class="hero" id="hero">
 
