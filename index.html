@@ -159,12 +159,39 @@ body {
     margin: auto;
 }
 
-/* Блок с фото (обертка для позиционирования) */
-.look-visual {
-    position: relative; /* Чтобы скрытый текст был внутри */
-    flex: 0 0 60%; /* Фото занимает 60% ширины */
-    cursor: crosshair;
+    /* Главный ряд: фото и текст рядом */
+.look {
+    display: flex;
+    align-items: center;      /* Центровка по вертикали */
+    justify-content: center; /* Центровка всего ряда */
+    gap: 60px;               /* Расстояние между фото и текстом */
+    margin-bottom: 200px;
+    width: 100%;
 }
+
+/* Шахматка: каждый второй ряд меняет порядок */
+.look:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Фото занимает ровно треть экрана */
+.look-visual {
+    position: relative;
+    flex: 0 0 33.333%; 
+    min-width: 300px; /* Чтобы на маленьких экранах не было слишком узко */
+}
+
+/* Боковой текст */
+.look-side-content {
+    flex: 0 0 25%; /* Текст чуть уже, чем фото */
+    text-align: left;
+}
+
+/* Выравнивание текста для шахматки */
+.look:nth-child(even) .look-side-content {
+    text-align: right;
+}
+
 
 .look-visual img {
     width: 100%;
@@ -304,62 +331,65 @@ footer {
 CHAPTER I — THE FALL
 </div>
 
-<div class="look-visual">
-        <img src="img/1.jpg">
-    
-    <div class="look-text">
-        <h2>The Duchess Descends</h2>
-        <p>Elegance fractures under pressure. Polyester inherits the throne.</p>
-     </div>
-
-<div class="look-side-content">
-        <h2>Text</h2>
-        <p>text</p>
-        <span class="look-number">#01</span>
+   <div class="look">
+        <div class="look-visual">
+            <img src="img/1.jpg">
+            <div class="look-text">
+                <h2>The Duchess Descends</h2>
+                <p>Elegance fractures under pressure. Polyester inherits the throne.</p>
+            </div>
+        </div>
+        <div class="look-side-content">
+            <h2>Text</h2>
+            <p>text</p>
+            <span class="look-number">#01</span>
+        </div>
     </div>
-</div>
 
-<div class="look-visual">
-    <img src="img/2.jpg">
-    <div class="look-text">
-        <h2>Panel Block Empress</h2>
-        <p>Posture remains. Context collapses.</p>
+    <div class="look">
+        <div class="look-visual">
+            <img src="img/2.jpg">
+            <div class="look-text">
+                <h2>Panel Block Empress</h2>
+                <p>Posture remains. Context collapses.</p>
+            </div>
+        </div>
+        <div class="look-side-content">
+            <h2>Text</h2>
+            <p>text</p>
+            <span class="look-number">#02</span>
+        </div>
     </div>
-    
-      <div class="look-side-content">
-        <h2>Text</h2>
-        <p>text</p>
-        <span class="look-number">#02</span>
-    </div>
-</div>
 
-  <div class="look-visual">   
-    <img src="img/3.jpg">
-    <div class="look-text">
+   <div class="look">
+        <div class="look-visual">
+            <img src="img/3.jpg">
+            <div class="look-text">
         <h2>Seed Ceremony</h2>
         <p>Ritual stripped of meaning. Only gesture survives.</p>
+            </div>
+        </div>
+        <div class="look-side-content">
+            <h2>Text</h2>
+            <p>text</p>
+            <span class="look-number">#03</span>
+        </div>
     </div>
-
-     <div class="look-side-content">
-        <h2>Text</h2>
-        <p>text</p>
-        <span class="look-number">#03</span>
-    </div>
-</div>
-
-    <div class="look-visual">  
-    <img src="img/4.jpg">
-    <div class="look-text">
+    
+    <div class="look">
+        <div class="look-visual">
+            <img src="img/4.jpg">
+            <div class="look-text">
         <h2>Nylon Nobility</h2>
         <p>Luxury reassembled from the lowest materials.</p>
+            </div>
+        </div>
+        <div class="look-side-content">
+            <h2>Text</h2>
+            <p>text</p>
+            <span class="look-number">#02</span>
+        </div>
     </div>
-
-     <div class="look-side-content">
-        <h2>Text</h2>
-        <p>text</p>
-        <span class="look-number">#04</span>
-    </div>
-</div>
 
 </section>
 
