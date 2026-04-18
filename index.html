@@ -292,41 +292,62 @@ footer {
 
     /* ADAPTIVE DESIGN -- Если экран меньше 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
-    
-    /* 1. Шапка (Hero) */
+    /* 1. ШАПКА: Сохраняем две панели, но делаем их друг под другом */
     .hero {
-        grid-template-columns: 1fr; /* Одна колонка вместо двух */
-        height: auto;
+        display: flex;
+        flex-direction: column; /* Панели встают в вертикальный ряд */
+        height: auto;           /* Высота подстраивается под контент */
     }
-    
+
+    .hero-block {
+        width: 100%;
+        height: 50vh;          /* Каждая панель занимает пол-экрана */
+    }
+
+    /* Заголовок в шапке на мобильном */
     .title {
-        font-size: 15vw; /* Увеличиваем заголовок, чтобы он "кричал" */
+        font-size: 10vw;       /* Чуть уменьшаем, чтобы не перекрыл всё */
         top: 20px;
         left: 20px;
     }
 
-    /* 2. Лукбук (Убираем шахматку) */
+    /* 2. ЛУКБУК: Уходим в одну колонку */
     .look {
-        flex-direction: column !important; /* Всё в столбик */
-        gap: 20px;
-        margin-bottom: 100px;
+        flex-direction: column !important; /* Текст под фото */
+        gap: 30px;
+        margin-bottom: 120px;
+        padding: 0 10px;
     }
 
     .look:nth-child(even) {
-        flex-direction: column !important; /* Убираем реверс для четных */
+        flex-direction: column !important; /* Убираем шахматку для мобилок */
     }
 
-    .look-visual, .look-side-content {
-        flex: 0 0 100%; /* Занимают всю ширину */
+    .look-visual {
+        flex: 0 0 100%;        /* Фото на всю ширину */
         width: 100%;
-        text-align: left !important; /* Весь текст по левому краю */
     }
 
-    /* 3. Текст при наведении */
+    .look-side-content {
+        flex: 0 0 100%;
+        width: 100%;
+        text-align: left !important; /* На мобильном всё по левому краю */
+        padding: 0 20px;
+    }
+
+    /* 3. ТЕКСТ ПРИ НАВЕДЕНИИ: Делаем видимым */
+    /* На телефонах нет 'hover', поэтому текст на фото должен быть виден сразу */
+    .look-text {
+        opacity: 1 !important; 
+        width: 90%;
+    }
+    
     .look-text h2 {
-        font-size: 1.5rem; /* Уменьшаем плашки под размер экрана */
+        font-size: 1.2rem;     /* Уменьшаем плашки */
+        padding: 5px 10px;
     }
 }
+
 
 
 </style>
