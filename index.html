@@ -141,8 +141,6 @@ body {
     padding: 5px 10px;
 }
 
-
-
 /* SECTION TITLE */
 .section-title {
     font-family: 'Six Caps', serif;
@@ -181,17 +179,6 @@ body {
     min-width: 300px; /* Чтобы на маленьких экранах не было слишком узко */
 }
 
-/* Боковой текст */
-.look-side-content {
-    flex: 0 0 25%; /* Текст чуть уже, чем фото */
-    text-align: left;
-}
-
-/* Выравнивание текста для шахматки */
-.look:nth-child(even) .look-side-content {
-    text-align: right;
-}
-
 
 .look-visual img {
     width: 100%;
@@ -226,6 +213,9 @@ body {
 .look-side-content {
     flex: 0 0 30%; /* Текст занимает 30% */
     text-align: left;
+    font-family: 'Courier New', Courier, monospace; /* The font of architects */
+    color: #00ff41; /* "Matrix" green or stay with White for a clean "Zine" look */
+    line-height: 1.5;
 }
 
 /* Выравнивание текста в шахматке */
@@ -234,10 +224,12 @@ body {
 }
 
 .look-side-content h2 {
-    font-family: 'Bodoni Moda', serif; /* Твой красивый заголовок */
-    font-size: 3rem;
-    margin-bottom: 20px;
-    font-style: italic;
+    font-size: 1rem;
+    background: #fff;
+    color: #000;
+    display: inline-block;
+    padding: 2px 8px;
+    margin-bottom: 15px;
 }
 
  .look-side-content p {
