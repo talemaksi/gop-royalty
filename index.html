@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victorian Gopnik Couture</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victorian Gopnik Couture</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;700&display=swap" rel="stylesheet">
-<link href="https://googleapis.com" rel="stylesheet">
+    <!-- Подключаем все нужные шрифты: Playfair, Inter + Готика и Глитч -->
+    <link href="https://googleapis.com" rel="stylesheet">
 <style>
 
-body {
-    margin: 0;
-    background: #0a0a0a;
-    color: #fff;
-    font-family: 'UnifrakturMaguntia', serif;
-}
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            color: #fff;
+            /* Теперь этот шрифт подцепится, так как он есть в ссылке выше */
+            font-family: 'Inter', sans-serif; 
+            font-weight: 300;
+        }
+
+     /* Главный заголовок — делаем его готическим и агрессивным */
+        .title {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-family: 'UnifrakturMaguntia', serif; /* ГОТИКА */
+            font-size: 4rem;
+            line-height: 0.8;
+            z-index: 10;
+            text-shadow: 3px 3px 0px #ff0000; /* Красная тень для агрессии */
+        }
+
+    /* Заголовки секций и карточек — оставляем элегантный Playfair */
+        .section-title, .look-text h2, .hero-label, footer {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Манифест под фото — можно сделать глитчем для хаоса */
+        .look-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
 
 /* HERO */
 .hero {
