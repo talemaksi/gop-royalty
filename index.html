@@ -93,15 +93,18 @@ body {
 }
 
 .look {
-    margin-bottom: 120px;
-    position: relative;
-    cursor: pointer;
+    margin-bottom: 200px; /* Больше отступа между луками */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем фото */
 }
 
 .look img {
-    width: 100%;
+    max-width: 700px
+    max-height: 80vh; /* Фото никогда не будет выше 80% экрана */
+    object-fit: contain; /* Фото не обрезается, а вписывается в рамки */
     filter: grayscale(100%);
-    transition: 0.5s;
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1); /* Плавное проявление */
 }
 
 .look:hover img {
