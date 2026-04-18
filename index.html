@@ -16,23 +16,24 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* HERO SPLIT */
+/* HERO */
 .hero {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    overflow: hidden;
 }
 
 .hero-block {
     position: relative;
-    overflow: hidden;
 }
 
 .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: contrast(110%);
+    transition: 0.5s;
 }
 
 .hero-label {
@@ -45,6 +46,11 @@ body {
     padding: 10px 15px;
 }
 
+/* разрушение expectation */
+.hero-block.left img {
+    transform-origin: center;
+}
+
 /* TITLE */
 .title {
     position: absolute;
@@ -55,9 +61,18 @@ body {
     z-index: 10;
 }
 
+/* SECTION TITLE */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
 /* LOOKBOOK */
 .lookbook {
-    padding: 100px 20px;
+    padding: 120px 20px;
     max-width: 1200px;
     margin: auto;
 }
@@ -70,7 +85,6 @@ body {
 
 .look img {
     width: 100%;
-    display: block;
     filter: grayscale(100%);
     transition: 0.5s;
 }
@@ -79,7 +93,7 @@ body {
     filter: grayscale(0%);
 }
 
-/* OVERLAY TEXT */
+/* TEXT */
 .look-text {
     position: absolute;
     bottom: 30px;
@@ -98,12 +112,7 @@ body {
     margin: 0;
 }
 
-.look-text p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-/* GLITCH STRIPES */
+/* glitch */
 .look:hover::after {
     content: "";
     position: absolute;
@@ -123,11 +132,9 @@ body {
 
 /* FOOTER */
 footer {
-    padding: 100px 20px;
+    padding: 100px;
     text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    border-top: 1px solid #333;
 }
 
 </style>
@@ -140,15 +147,15 @@ Victorian Gopnik Couture<br>
 ISSUE 01
 </div>
 
-<section class="hero">
+<section class="hero" id="hero">
 
-<div class="hero-block">
-    <img src="img/expectation.PNG">
+<div class="hero-block left">
+    <img src="expectation.png" id="expectation">
     <div class="hero-label">Expectation</div>
 </div>
 
 <div class="hero-block">
-    <img src="img/reality.JPG">
+    <img src="reality.jpg">
     <div class="hero-label">Reality</div>
 </div>
 
@@ -156,11 +163,15 @@ ISSUE 01
 
 <section class="lookbook">
 
+<div class="section-title">
+CHAPTER I — THE FALL
+</div>
+
 <div class="look">
     <img src="look1.jpg">
     <div class="look-text">
         <h2>The Duchess Descends</h2>
-        <p>Velvet fantasy collapses into synthetic reality. The crown slips, the stripes remain.</p>
+        <p>Elegance fractures under pressure. Polyester inherits the throne.</p>
     </div>
 </div>
 
@@ -168,7 +179,7 @@ ISSUE 01
     <img src="look2.jpg">
     <div class="look-text">
         <h2>Panel Block Empress</h2>
-        <p>Architecture of decay meets inherited posture. Aristocracy rewritten in polyester.</p>
+        <p>Posture remains. Context collapses.</p>
     </div>
 </div>
 
@@ -176,7 +187,7 @@ ISSUE 01
     <img src="look3.jpg">
     <div class="look-text">
         <h2>Seed Ceremony</h2>
-        <p>Ritual without dignity. Consumption as performance. The table remembers everything.</p>
+        <p>Ritual stripped of meaning. Only gesture survives.</p>
     </div>
 </div>
 
@@ -184,7 +195,7 @@ ISSUE 01
     <img src="look4.jpg">
     <div class="look-text">
         <h2>Nylon Nobility</h2>
-        <p>Elegance is no longer inherited. It is assembled from fragments.</p>
+        <p>Luxury reassembled from the lowest materials.</p>
     </div>
 </div>
 
@@ -193,6 +204,23 @@ ISSUE 01
 <footer>
 FROM PALACE TO PANEL BLOCK
 </footer>
+
+<script>
+
+/* 💀 разрушение expectation */
+window.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+    const img = document.getElementById("expectation");
+
+    const scale = 1 - scroll / 1000;
+    const rotate = scroll / 10;
+    const opacity = 1 - scroll / 600;
+
+    img.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+    img.style.opacity = opacity;
+});
+
+</script>
 
 </body>
 </html>
