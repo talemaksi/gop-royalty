@@ -178,22 +178,20 @@ body {
     margin: auto;
 }
 
-.look {
-    margin-bottom: 200px; /* Больше отступа между луками */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрируем фото */
-    position: relative; /* ДОБАВЬ ЭТО: теперь текст привязан к этому блоку */
+/* Блок с фото (обертка для позиционирования) */
+.look-visual {
+    position: relative; /* Чтобы скрытый текст был внутри */
+    flex: 0 0 60%; /* Фото занимает 60% ширины */
+    cursor: crosshair;
 }
 
-.look img {
-    max-height: 80vh; /* Фото никогда не будет выше 80% экрана */
-    object-fit: contain; /* Фото не обрезается, а вписывается в рамки */
+.look-visual img {
+    width: 100%;
     filter: grayscale(100%);
-    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1); /* Плавное проявление */
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.look:hover img {
+.look-visual:hover img {
     filter: grayscale(0%);
 }
 
@@ -219,6 +217,41 @@ body {
 .look:hover .look-text {
     opacity: 1;
     bottom: 60px; /* Текст плавно "поднимается" чуть выше */
+}
+
+    /* ПОСТОЯННЫЙ ТЕКСТ СБОКУ */
+.look-side-content {
+    flex: 0 0 30%; /* Текст занимает 30% */
+    text-align: left;
+}
+
+/* Выравнивание текста в шахматке */
+.look:nth-child(even) .look-side-content {
+    text-align: right;
+}
+
+.look-side-content h2 {
+    font-family: 'Bodoni Moda', serif; /* Твой красивый заголовок */
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+ .look-side-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.look-number {
+    display: block;
+    margin-top: 30px;
+    font-size: 5rem;
+    font-family: 'Six Caps', sans-serif;
+    color: rgba(255,255,255,0.1);
 }
 
 .look-text h2 {
@@ -290,34 +323,66 @@ CHAPTER I — THE FALL
 </div>
 
 <div class="look">
-    <img src="img/1.jpg">
-    <div class="look-text">
+      <div class="look-visual">
+        <img src="img/1.jpg">
+        <div class="look-text">
         <h2>The Duchess Descends</h2>
         <p>Elegance fractures under pressure. Polyester inherits the throne.</p>
+        </div>
+     </div>
+
+     <div class="look-side-content">
+        <h2>Text</h2>
+        <p>text</p>
+        <span class="look-number">#01</span>
     </div>
 </div>
 
 <div class="look">
+   <div class="look-visual"> 
     <img src="img/2.jpg">
     <div class="look-text">
         <h2>Panel Block Empress</h2>
         <p>Posture remains. Context collapses.</p>
     </div>
+    </div>
+    
+      <div class="look-side-content">
+        <h2>Text</h2>
+        <p>text</p>
+        <span class="look-number">#02</span>
+    </div>
 </div>
 
 <div class="look">
+  <div class="look-visual">   
     <img src="img/3.jpg">
     <div class="look-text">
         <h2>Seed Ceremony</h2>
         <p>Ritual stripped of meaning. Only gesture survives.</p>
     </div>
+    </div>
+
+     <div class="look-side-content">
+        <h2>Text</h2>
+        <p>text</p>
+        <span class="look-number">#03</span>
+    </div>
 </div>
 
 <div class="look">
+    <div class="look-visual">  
     <img src="img/4.jpg">
     <div class="look-text">
         <h2>Nylon Nobility</h2>
         <p>Luxury reassembled from the lowest materials.</p>
+    </div>
+    </div>
+
+     <div class="look-side-content">
+        <h2>Text</h2>
+        <p>text</p>
+        <span class="look-number">#04</span>
     </div>
 </div>
 
