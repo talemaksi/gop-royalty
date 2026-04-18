@@ -101,26 +101,34 @@ body {
 /* TITLE */
 .title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%; /* Чуть меньше ширины экрана */
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between; /* Раскидывает текст по углам */
+    align-items: flex-start;
     z-index: 100;
     pointer-events: none;
-    
-    font-family: 'Playfair Display', serif; 
-    font-size: 12vw; /* Делаем ЕЩЕ больше */
-    line-height: 0.85;
+    font-family: 'Playfair Display', serif;
     text-transform: uppercase;
-    text-align: center;
-
-    /* МАГИЯ: Прозрачные буквы с тонким белым контуром */
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.6);
-    
-    /* Убираем mix-blend-mode, он тут всё портит */
-    mix-blend-mode: normal; 
 }
+
+/* Стили для левой части (название) */
+.title-brand {
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+/* Стили для правой части (номер выпуска) */
+.title-issue {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+}
+
 
 
 /* SECTION TITLE */
