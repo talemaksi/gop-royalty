@@ -1,151 +1,197 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOP-ROYALTY // ISSUE 01</title>
-    <style>
-        /* Глобальные стили: эффект старой бумаги и зерна */
-        body {
-            background-color: #f0f0f0; /* Светло-серый, как газетная бумага */
-            color: #000;
-            font-family: 'Arial Black', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 0.9;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victorian Gopnik Couture</title>
 
-        /* Эффект зернистости поверх всего сайта */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url(https://vercel.app);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 9999;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;700&display=swap" rel="stylesheet">
 
-        /* Шапка журнала */
-        header {
-            padding: 20px;
-            border-bottom: 5px solid #000;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            position: sticky;
-            top: 0;
-            background: #f0f0f0;
-            z-index: 100;
-        }
+<style>
 
-        header h1 { font-size: 3rem; margin: 0; text-transform: uppercase; }
-        header span { font-size: 1rem; border: 2px solid #000; padding: 5px; }
+body {
+    margin: 0;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
 
-        /* Сетка лукбука */
-        .magazine-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 10px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* HERO SPLIT */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
 
-        /* Общий стиль для всех блоков с фото */
-        .look {
-            position: relative;
-            background: #000;
-            overflow: hidden;
-            filter: grayscale(100%) contrast(120%);
-            transition: 0.4s;
-        }
+.hero-block {
+    position: relative;
+    overflow: hidden;
+}
 
-        .look:hover {
-            filter: grayscale(0%) contrast(100%);
-            z-index: 50;
-        }
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(110%);
+}
 
-        .look img { width: 100%; display: block; object-fit: cover; }
+.hero-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 15px;
+}
 
-        /* Позиционирование элементов (Хаос) */
-        .item-1 { grid-column: 1 / 7; grid-row: 1 / 4; transform: rotate(-1deg); }
-        .item-2 { grid-column: 7 / 13; grid-row: 2 / 5; transform: rotate(2deg); margin-top: 50px; }
-        .item-3 { grid-column: 2 / 6; grid-row: 5 / 8; transform: rotate(-2deg); z-index: 10; }
-        .item-4 { grid-column: 6 / 12; grid-row: 6 / 9; }
+/* TITLE */
+.title {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    z-index: 10;
+}
 
-        /* Текстовые вставки (подписи) */
-        .text-block {
-            grid-column: 8 / 12;
-            grid-row: 1 / 2;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            padding: 10px;
-            border-top: 3px solid #000;
-        }
+/* LOOKBOOK */
+.lookbook {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        .caption {
-            position: absolute;
-            background: #000;
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            bottom: 10px;
-            right: 10px;
-        }
+.look {
+    margin-bottom: 120px;
+    position: relative;
+    cursor: pointer;
+}
 
-        /* Подвал */
-        footer {
-            text-align: center;
-            padding: 100px 20px;
-            font-size: 5vw;
-            background: #000;
-            color: #fff;
-            margin-top: 50px;
-        }
-    </style>
+.look img {
+    width: 100%;
+    display: block;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.look:hover img {
+    filter: grayscale(0%);
+}
+
+/* OVERLAY TEXT */
+.look-text {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    opacity: 0;
+    transition: 0.4s;
+    max-width: 400px;
+}
+
+.look:hover .look-text {
+    opacity: 1;
+}
+
+.look-text h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.look-text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* GLITCH STRIPES */
+.look:hover::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 3px;
+    background: white;
+    top: 50%;
+    left: -25%;
+    animation: glitch 0.4s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(40px); }
+    100% { transform: translateX(0); }
+}
+
+/* FOOTER */
+footer {
+    padding: 100px 20px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    border-top: 1px solid #333;
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>Gop-Royalty</h1>
-    <span>ISSUE 01 / 2024</span>
-</header>
+<div class="title">
+Victorian Gopnik Couture<br>
+ISSUE 01
+</div>
 
-<main class="magazine-grid">
-    <div class="text-block">
-        Victoria meets the street. <br>
-        Three stripes on the corset. <br>
-        Vandalism in high places.
-    </div>
+<section class="hero">
 
-    <!-- Твое главное фото -->
-    <div class="look item-1">
-        <img src="hero.jpg" alt="Look 1">
-        <div class="caption">MOD. 01 / THE DUCHESS</div>
-    </div>
+<div class="hero-block">
+    <img src="expectation.png">
+    <div class="hero-label">Expectation</div>
+</div>
 
-    <!-- Место для второго фото -->
-    <div class="look item-2">
-        <img src="https://placeholder.com" alt="Look 2">
-        <div class="caption">MOD. 02 / NYLON LACE</div>
-    </div>
+<div class="hero-block">
+    <img src="reality.jpg">
+    <div class="hero-label">Reality</div>
+</div>
 
-    <!-- Место для третьего фото -->
-    <div class="look item-3">
-        <img src="https://placeholder.com" alt="Look 3">
-        <div class="caption">MOD. 03 / TRACK-CROWN</div>
-    </div>
+</section>
 
-    <!-- Место для четвертого фото -->
-    <div class="look item-4">
-        <img src="https://placeholder.com" alt="Look 4">
-        <div class="caption">MOD. 04 / PAVEMENT ROYALTY</div>
+<section class="lookbook">
+
+<div class="look">
+    <img src="look1.jpg">
+    <div class="look-text">
+        <h2>The Duchess Descends</h2>
+        <p>Velvet fantasy collapses into synthetic reality. The crown slips, the stripes remain.</p>
     </div>
-</main>
+</div>
+
+<div class="look">
+    <img src="look2.jpg">
+    <div class="look-text">
+        <h2>Panel Block Empress</h2>
+        <p>Architecture of decay meets inherited posture. Aristocracy rewritten in polyester.</p>
+    </div>
+</div>
+
+<div class="look">
+    <img src="look3.jpg">
+    <div class="look-text">
+        <h2>Seed Ceremony</h2>
+        <p>Ritual without dignity. Consumption as performance. The table remembers everything.</p>
+    </div>
+</div>
+
+<div class="look">
+    <img src="look4.jpg">
+    <div class="look-text">
+        <h2>Nylon Nobility</h2>
+        <p>Elegance is no longer inherited. It is assembled from fragments.</p>
+    </div>
+</div>
+
+</section>
 
 <footer>
-    ADIDAS ABOMINATION
+FROM PALACE TO PANEL BLOCK
 </footer>
 
 </body>
