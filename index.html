@@ -5,44 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victorian Gopnik Couture</title>
 
-    <!-- Подключаем все нужные шрифты: Playfair, Inter + Готика и Глитч -->
-    <link href="https://googleapis.com" rel="stylesheet">
+<!-- Подключаем только элитную классику и строгий гротеск -->
+<link href="https://googleapis.com" rel="stylesheet">
+
 <style>
+body {
+    margin: 0;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased; /* Делает текст тоньше и четче */
+}
 
-        body {
-            margin: 0;
-            background: #0a0a0a;
-            color: #fff;
-            /* Теперь этот шрифт подцепится, так как он есть в ссылке выше */
-            font-family: 'Inter', sans-serif; 
-            font-weight: 300;
-        }
+/* ГЛАВНЫЙ ЗАГОЛОВОК (Стиль обложки дорогого зин-журнала) */
+.title {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    font-family: 'Six Caps', sans-serif; /* Узкий, высокий, "модный" шрифт */
+    font-size: 8rem;
+    line-height: 0.7;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    z-index: 100;
+    color: #fff;
+    mix-blend-mode: difference; /* Текст будет инвертироваться при наложении на фото */
+}
 
-     /* Главный заголовок — делаем его готическим и агрессивным */
-        .title {
-            position: absolute;
-            top: 40px;
-            left: 40px;
-            font-family: 'UnifrakturMaguntia', serif; /* ГОТИКА */
-            font-size: 4rem;
-            line-height: 0.8;
-            z-index: 10;
-            text-shadow: 3px 3px 0px #ff0000; /* Красная тень для агрессии */
-        }
+/* ЗАГОЛОВКИ СЕКЦИЙ (Классика викторианства) */
+.section-title, .look-text h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
 
-    /* Заголовки секций и карточек — оставляем элегантный Playfair */
-        .section-title, .look-text h2, .hero-label, footer {
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+/* ТЕКСТ ПОДПИСЕЙ */
+.look-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+}
 
-        /* Манифест под фото — можно сделать глитчем для хаоса */
-        .look-text p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
+/* HERO LABEL (Бирка) */
+.hero-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.7rem;
+    background: #fff;
+    color: #000;
+    padding: 5px 10px;
+}
+</style>
+
 
 /* HERO */
 .hero {
