@@ -3,12 +3,31 @@
 <head>
     <title>GOP-ROYALTY</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Impact', sans-serif; margin: 0; padding: 20px; overflow-x: hidden; }
-        
-        /* The "Chaos" styling */
-        h1 { font-size: 15vw; line-height: 0.8; margin: 0; letter-spacing: -5px; text-transform: uppercase; color: #fff; }
-        .manifesto { font-size: 1.5rem; border-left: 10px solid #fff; padding-left: 20px; margin-top: 50px; max-width: 500px; }
-        .stripe { height: 10px; background: white; margin: 5px 0; width: 100vw; transform: rotate(-2deg); position: absolute; top: 150px; left: -10px; z-index: -1; }
+        .photo-container {
+    position: relative;
+    margin: 50px 0;
+    display: inline-block;
+}
+
+.glitch-img {
+    width: 80vw; /* Фото будет на 80% ширины экрана */
+    max-width: 600px;
+    filter: contrast(120%) grayscale(20%); /* Добавляем драматизма */
+    border: 10px solid #fff;
+    transform: rotate(-2deg); /* Тот самый наклон "наклеено на стену" */
+    box-shadow: 15px 15px 0px #ff0000; /* Агрессивная красная тень */
+}
+
+.caption {
+    background: #fff;
+    color: #000;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    transform: rotate(3deg);
+}
     </style>
 </head>
 <body>
@@ -18,9 +37,13 @@
     <h1>GOP<br>ROYALTY</h1>
     
     <div class="manifesto">
-        ADIDAS ABOMINATION.<br>
-        Lace-up corsets and three-stripe tracksuits.<br>
-        VANDALISM IN THE NAME OF THE CROWN.
+     "From the palace to the pavement. From the ballroom to the brawl."
+     Silk lace meets tracksuit synthetic.
     </div>
+    <div class="photo-container">
+    <img src="hero.jpg" alt="Victorian Gopcore Look" class="glitch-img">
+    <div class="caption">LOOK 01: THE COURTSIDE DUCHESS</div>
+</div>
+
 </body>
 </html>
