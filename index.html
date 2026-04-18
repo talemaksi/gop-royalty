@@ -46,6 +46,13 @@ body {
     padding: 10px 15px;
 }
 
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(110%);
+}
+
 /* разрушение expectation */
 .hero-block.left img {
     transform-origin: center;
@@ -150,12 +157,14 @@ ISSUE 01
 <section class="hero" id="hero">
 
 <div class="hero-block left">
-    <img src="expectation.png" id="expectation">
+    <img src="img/expectation.PNG" id="expectation">
     <div class="hero-label">Expectation</div>
 </div>
 
 <div class="hero-block">
-    <img src="reality.jpg">
+    <video autoplay muted loop playsinline id="realityVideo">
+        <source src="img/reality.mp4" type="video/mp4">
+    </video>
     <div class="hero-label">Reality</div>
 </div>
 
@@ -218,6 +227,22 @@ window.addEventListener("scroll", () => {
 
     img.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
     img.style.opacity = opacity;
+});
+</script>
+<script>
+    window.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+
+    const img = document.getElementById("expectation");
+    const video = document.getElementById("realityVideo");
+
+    const scale = 1 - scroll / 1000;
+    const opacity = 1 - scroll / 600;
+
+    img.style.transform = `scale(${scale})`;
+    img.style.opacity = opacity;
+
+    video.style.filter = `contrast(${100 + scroll/5}%) saturate(${100 + scroll/3}%)`;
 });
 
 </script>
