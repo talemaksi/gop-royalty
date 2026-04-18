@@ -1,192 +1,152 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>gopcore // визитка</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOP-ROYALTY // ISSUE 01</title>
+    <style>
+        /* Глобальные стили: эффект старой бумаги и зерна */
+        body {
+            background-color: #f0f0f0; /* Светло-серый, как газетная бумага */
+            color: #000;
+            font-family: 'Arial Black', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 0.9;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: monospace;
-      background: #1a1a1a;
-      color: #e5e5e5;
-      overflow-x: hidden;
-    }
+        /* Эффект зернистости поверх всего сайта */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url(https://vercel.app);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 9999;
+        }
 
-    /* шум */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("https://grainy-gradients.vercel.app/noise.svg");
-      opacity: 0.15;
-      pointer-events: none;
-    }
+        /* Шапка журнала */
+        header {
+            padding: 20px;
+            border-bottom: 5px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: sticky;
+            top: 0;
+            background: #f0f0f0;
+            z-index: 100;
+        }
 
-    /* контейнер */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+        header h1 { font-size: 3rem; margin: 0; text-transform: uppercase; }
+        header span { font-size: 1rem; border: 2px solid #000; padding: 5px; }
 
-    /* glitch текст */
-    .glitch {
-      font-size: 48px;
-      position: relative;
-      display: inline-block;
-    }
+        /* Сетка лукбука */
+        .magazine-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-    }
+        /* Общий стиль для всех блоков с фото */
+        .look {
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            filter: grayscale(100%) contrast(120%);
+            transition: 0.4s;
+        }
 
-    .glitch::before {
-      color: red;
-      z-index: -1;
-      animation: glitch 1s infinite;
-    }
+        .look:hover {
+            filter: grayscale(0%) contrast(100%);
+            z-index: 50;
+        }
 
-    .glitch::after {
-      color: blue;
-      z-index: -2;
-      animation: glitch 1s infinite reverse;
-    }
+        .look img { width: 100%; display: block; object-fit: cover; }
 
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(-2px, -2px); }
-      60% { transform: translate(2px, 2px); }
-      80% { transform: translate(2px, -2px); }
-      100% { transform: translate(0); }
-    }
+        /* Позиционирование элементов (Хаос) */
+        .item-1 { grid-column: 1 / 7; grid-row: 1 / 4; transform: rotate(-1deg); }
+        .item-2 { grid-column: 7 / 13; grid-row: 2 / 5; transform: rotate(2deg); margin-top: 50px; }
+        .item-3 { grid-column: 2 / 6; grid-row: 5 / 8; transform: rotate(-2deg); z-index: 10; }
+        .item-4 { grid-column: 6 / 12; grid-row: 6 / 9; }
 
-    /* блоки */
-    section {
-      margin-top: 60px;
-      border-left: 3px solid #444;
-      padding-left: 20px;
-    }
+        /* Текстовые вставки (подписи) */
+        .text-block {
+            grid-column: 8 / 12;
+            grid-row: 1 / 2;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: 10px;
+            border-top: 3px solid #000;
+        }
 
-    h2 {
-      color: #9cff00;
-      margin-bottom: 10px;
-    }
+        .caption {
+            position: absolute;
+            background: #000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            bottom: 10px;
+            right: 10px;
+        }
 
-    /* кнопки как домофон */
-    .nav {
-      margin-top: 30px;
-    }
-
-    .nav a {
-      display: inline-block;
-      margin-right: 10px;
-      padding: 10px 15px;
-      border: 1px solid #555;
-      text-decoration: none;
-      color: #ccc;
-      transition: 0.2s;
-    }
-
-    .nav a:hover {
-      background: #333;
-      color: #fff;
-    }
-
-    /* проекты */
-    .project {
-      border: 1px dashed #666;
-      padding: 15px;
-      margin-bottom: 15px;
-      transition: 0.2s;
-    }
-
-    .project:hover {
-      background: #222;
-      transform: translateX(5px);
-    }
-
-    /* курсор */
-    body {
-      cursor: crosshair;
-    }
-
-    /* мелкий текст */
-    .meta {
-      font-size: 14px;
-      color: #888;
-    }
-  </style>
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 100px 20px;
+            font-size: 5vw;
+            background: #000;
+            color: #fff;
+            margin-top: 50px;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
 
-    <!-- HERO -->
-    <h1 class="glitch" data-text="gopcore.dev">gopcore.dev</h1>
-    <p>frontend / digital hustler</p>
+<header>
+    <h1>Gop-Royalty</h1>
+    <span>ISSUE 01 / 2024</span>
+</header>
 
-    <div class="nav">
-      <a href="#about">[01] обо мне</a>
-      <a href="#projects">[02] проекты</a>
-      <a href="#contact">[03] контакт</a>
+<main class="magazine-grid">
+    <div class="text-block">
+        Victoria meets the street. <br>
+        Three stripes on the corset. <br>
+        Vandalism in high places.
     </div>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>досье</h2>
-      <p class="meta">
-        имя: твое_имя<br>
-        район: интернет<br>
-        специализация: сайты / дизайн / хаос<br>
-        статус: на кортах в проде
-      </p>
-    </section>
+    <!-- Твое главное фото -->
+    <div class="look item-1">
+        <img src="hero.jpg" alt="Look 1">
+        <div class="caption">MOD. 01 / THE DUCHESS</div>
+    </div>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>архив</h2>
+    <!-- Место для второго фото -->
+    <div class="look item-2">
+        <img src="https://placeholder.com" alt="Look 2">
+        <div class="caption">MOD. 02 / NYLON LACE</div>
+    </div>
 
-      <div class="project">
-        <strong>project_01.rar</strong>
-        <p class="meta">лендинг / дизайн / код</p>
-      </div>
+    <!-- Место для третьего фото -->
+    <div class="look item-3">
+        <img src="https://placeholder.com" alt="Look 3">
+        <div class="caption">MOD. 03 / TRACK-CROWN</div>
+    </div>
 
-      <div class="project">
-        <strong>project_02.zip</strong>
-        <p class="meta">эксперимент / визуал</p>
-      </div>
+    <!-- Место для четвертого фото -->
+    <div class="look item-4">
+        <img src="https://placeholder.com" alt="Look 4">
+        <div class="caption">MOD. 04 / PAVEMENT ROYALTY</div>
+    </div>
+</main>
 
-    </section>
+<footer>
+    ADIDAS ABOMINATION
+</footer>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>связь</h2>
-      <p class="meta">
-        telegram: @username<br>
-        github: github.com/username
-      </p>
-    </section>
-
-  </div>
-
-  <script>
-    // случайные фразы
-    const phrases = [
-      "есть тема",
-      "зашёл не просто так",
-      "сайт работает — ты тоже работай",
-      "код как жизнь"
-    ];
-
-    setInterval(() => {
-      console.log(phrases[Math.floor(Math.random() * phrases.length)]);
-    }, 3000);
-  </script>
 </body>
 </html>
