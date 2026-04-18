@@ -86,6 +86,7 @@ body {
     color: #000;
     padding: 6px 12px; /* Меньше внутренние отступы */
     width: auto;       /* Ширина только по тексту */
+    height: auto !important;
     display: inline-block;
     
     font-family: 'Inter', sans-serif;
@@ -99,23 +100,6 @@ body {
     transform: translateX(-50%) rotate(-1deg);
 }
 
-/* Тонкая линия-игла (пусть она будет совсем деликатной) */
-.scroll-hint::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 30px; /* Укоротим линию */
-    background: #fff;
-    margin: 10px auto 0;
-}
-
-
-@keyframes pulse {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
-}
-
 /* Добавим тонкую линию-иглу, которая уходит вниз */
 .scroll-hint::after {
     content: "";
@@ -127,6 +111,11 @@ body {
     background: #fff;
 }
 
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
