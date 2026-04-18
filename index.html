@@ -1,49 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>GOP-ROYALTY</title>
-    <style>
-        .photo-container {
-    position: relative;
-    margin: 50px 0;
-    display: inline-block;
-}
+  <meta charset="UTF-8">
+  <title>gopcore // визитка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.glitch-img {
-    width: 80vw; /* Фото будет на 80% ширины экрана */
-    max-width: 600px;
-    filter: contrast(120%) grayscale(20%); /* Добавляем драматизма */
-    border: 10px solid #fff;
-    transform: rotate(-2deg); /* Тот самый наклон "наклеено на стену" */
-    box-shadow: 15px 15px 0px #ff0000; /* Агрессивная красная тень */
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: #1a1a1a;
+      color: #e5e5e5;
+      overflow-x: hidden;
+    }
 
-.caption {
-    background: #fff;
-    color: #000;
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    position: absolute;
-    bottom: -20px;
-    right: -10px;
-    transform: rotate(3deg);
-}
-    </style>
+    /* шум */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("https://grainy-gradients.vercel.app/noise.svg");
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    /* контейнер */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* glitch текст */
+    .glitch {
+      font-size: 48px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+    }
+
+    .glitch::before {
+      color: red;
+      z-index: -1;
+      animation: glitch 1s infinite;
+    }
+
+    .glitch::after {
+      color: blue;
+      z-index: -2;
+      animation: glitch 1s infinite reverse;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    /* блоки */
+    section {
+      margin-top: 60px;
+      border-left: 3px solid #444;
+      padding-left: 20px;
+    }
+
+    h2 {
+      color: #9cff00;
+      margin-bottom: 10px;
+    }
+
+    /* кнопки как домофон */
+    .nav {
+      margin-top: 30px;
+    }
+
+    .nav a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 15px;
+      border: 1px solid #555;
+      text-decoration: none;
+      color: #ccc;
+      transition: 0.2s;
+    }
+
+    .nav a:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    /* проекты */
+    .project {
+      border: 1px dashed #666;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .project:hover {
+      background: #222;
+      transform: translateX(5px);
+    }
+
+    /* курсор */
+    body {
+      cursor: crosshair;
+    }
+
+    /* мелкий текст */
+    .meta {
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
 </head>
-<body>
-    <div class="stripe"></div>
-    <div class="stripe" style="top: 170px; transform: rotate(1deg);"></div>
-    
-    <h1>GOP<br>ROYALTY</h1>
-    
-    <div class="manifesto">
-     "From the palace to the pavement. From the ballroom to the brawl."
-     Silk lace meets tracksuit synthetic.
-    </div>
-    <div class="photo-container">
-    <img src="hero.jpg" alt="Victorian Gopcore Look" class="glitch-img">
-    <div class="caption">LOOK 01: THE COURTSIDE DUCHESS</div>
-</div>
 
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <h1 class="glitch" data-text="gopcore.dev">gopcore.dev</h1>
+    <p>frontend / digital hustler</p>
+
+    <div class="nav">
+      <a href="#about">[01] обо мне</a>
+      <a href="#projects">[02] проекты</a>
+      <a href="#contact">[03] контакт</a>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>досье</h2>
+      <p class="meta">
+        имя: твое_имя<br>
+        район: интернет<br>
+        специализация: сайты / дизайн / хаос<br>
+        статус: на кортах в проде
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>архив</h2>
+
+      <div class="project">
+        <strong>project_01.rar</strong>
+        <p class="meta">лендинг / дизайн / код</p>
+      </div>
+
+      <div class="project">
+        <strong>project_02.zip</strong>
+        <p class="meta">эксперимент / визуал</p>
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>связь</h2>
+      <p class="meta">
+        telegram: @username<br>
+        github: github.com/username
+      </p>
+    </section>
+
+  </div>
+
+  <script>
+    // случайные фразы
+    const phrases = [
+      "есть тема",
+      "зашёл не просто так",
+      "сайт работает — ты тоже работай",
+      "код как жизнь"
+    ];
+
+    setInterval(() => {
+      console.log(phrases[Math.floor(Math.random() * phrases.length)]);
+    }, 3000);
+  </script>
 </body>
 </html>
