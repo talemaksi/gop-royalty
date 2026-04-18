@@ -76,26 +76,39 @@ body {
 
 .scroll-hint {
     position: absolute;
-    bottom: 50px; /* Чуть выше от края */
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 200; /* Максимальный приоритет */
+    z-index: 200;
     
-    /* Стили бирки */
+    /* СУЖАЕМ БИРКУ */
     background: #fff;
     color: #000;
-    padding: 8px 15px;
+    padding: 6px 12px; /* Меньше внутренние отступы */
+    width: auto;       /* Ширина только по тексту */
+    display: inline-block;
+    
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 9px;    /* Делаем шрифт крошечным, как на бирках люкса */
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     white-space: nowrap;
     
-    /* Эффект мерцания (чтобы привлекал внимание, но не бесил) */
-    animation: pulse 2s infinite;
-    cursor: pointer;
+    /* Добавим легкий наклон, чтобы она не выглядела слишком "правильной" */
+    transform: translateX(-50%) rotate(-1deg);
 }
+
+/* Тонкая линия-игла (пусть она будет совсем деликатной) */
+.scroll-hint::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 30px; /* Укоротим линию */
+    background: #fff;
+    margin: 10px auto 0;
+}
+
 
 @keyframes pulse {
     0% { opacity: 0.5; }
