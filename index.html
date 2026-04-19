@@ -329,11 +329,12 @@ footer {
     /* 2. Твоя бирка: теперь она не будет распирать сайт */
     .collection-status {
         position: absolute;
-        top: 30% !important;
+        top: 10% !important;
         /* Магия: используем расчет, чтобы она не улетала за край */
         right: calc(0% - 40px) !important; 
         transform: rotate(90deg) !important;
         transform-origin: center;
+        box-shadow: none !important;
         
         background: #fff !important;
         color: #000 !important;
