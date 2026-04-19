@@ -292,58 +292,57 @@ footer {
 
     /* ADAPTIVE DESIGN -- Если экран меньше 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
-    /* Фиксим вылет за края */
-    html, body {
-        overflow-x: hidden; /* Запрещаем горизонтальный скролл */
-        width: 100vw;
+    /* 1. Глобальный отступ для всего сайта, чтобы не было вылета */
+    body {
+        overflow-x: hidden;
+        width: 100%;
     }
 
-    /* ШАПКА: Две колонки, но без фанатизма */
-    .hero {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        height: 70vh; 
+    .lookbook {
+        padding: 60px 15px; /* Боковые отступы в 15px создают "рамку" */
+        box-sizing: border-box;
     }
 
-    /* ЛУКБУК: Две колонки на телефоне */
+    /* 2. Настройка пропорций в лукбуке */
     .look {
         display: flex;
         flex-direction: row !important;
-        gap: 5px; /* Минимальный зазор */
-        padding: 0 10px;
+        gap: 15px; /* Расстояние между фото и текстом */
         width: 100%;
-        box-sizing: border-box; /* Чтобы паддинги не расширяли экран */
+        box-sizing: border-box;
+        margin-bottom: 80px;
     }
 
+    /* ФОТО: Сужаем (было 65%, ставим 55%) */
     .look-visual {
-        flex: 0 0 65%; /* Фото забирает больше места */
-        max-width: 65%;
+        flex: 0 0 55%; 
+        max-width: 55%;
     }
 
-    /* БОКОВОЙ ТЕКСТ: Вот тут главная магия */
+    /* ТЕКСТ: Расширяем (было 32%, ставим 40%) */
     .look-side-content {
-        flex: 0 0 32%; /* Текст зажат в узкую колонку */
-        max-width: 32%;
-        word-wrap: break-word; /* Силовой перенос слов */
-        overflow-wrap: break-word;
-        hyphens: auto; /* Автопереносы (важно для англ. текста) */
+        flex: 0 0 40%; 
+        max-width: 40%;
+        word-wrap: break-word;
+        hyphens: auto;
+        padding-top: 10px; /* Чтобы текст не "прилипал" к верху фото */
     }
 
+    /* 3. Шрифты: чуть-чуть поднимем размер для читаемости */
     .look-side-content h2 {
-        font-size: 0.7rem !important; /* Уменьшаем до предела */
-        letter-spacing: 0;
-        line-height: 1;
+        font-size: 0.8rem !important;
+        line-height: 1.1;
+        margin-bottom: 8px;
     }
 
     .look-side-content p {
-        font-size: 0.55rem !important; /* Крошечный шрифт, как в документации */
-        line-height: 1.1;
-        opacity: 0.8;
+        font-size: 0.65rem !important;
+        line-height: 1.3;
     }
 
     .look-number {
-        font-size: 3rem !important; /* Уменьшаем номер */
-        margin-top: 5px;
+        font-size: 3.5rem !important;
+        margin-top: 10px;
     }
 }
 
