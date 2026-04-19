@@ -327,16 +327,18 @@ footer {
     max-width: 40%;
   }
 
-  .look-side-content {
-    flex: 0 0 60%;
-    max-width: 60%;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    padding-right: 2px;
-    letter-spacing: 0px;
-    line-height: 1.2;
-  }
+.look-side-content {
+  flex: 0 0 60%;
+  max-width: 60%;
+  min-width: 0;           /* ← это главное! */
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding-right: 2px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
 
   .look-side-content h2 {
     font-size: 0.8rem;
