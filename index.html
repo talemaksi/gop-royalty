@@ -318,90 +318,68 @@ footer {
 
     /* ADAPTIVE DESIGN -- Если экран меньше 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
-    /* 1. Глобальный отступ для всего сайта, чтобы не было вылета */
-    body {
+    /* 1. Блокируем горизонтальный люфт на корню */
+    html, body {
         overflow-x: hidden;
         width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
-    .lookbook {
-        padding: 60px 15px; /* Боковые отступы в 15px создают "рамку" */
-        box-sizing: border-box;
+    /* 2. Твоя бирка: теперь она не будет распирать сайт */
+    .collection-status {
+        position: absolute;
+        top: 30% !important;
+        /* Магия: используем расчет, чтобы она не улетала за край */
+        right: calc(0% - 40px) !important; 
+        transform: rotate(90deg) !important;
+        transform-origin: center;
+        
+        background: #fff !important;
+        color: #000 !important;
+        padding: 8px 30px !important;
+        width: max-content !important; /* Жестко в одну строку */
+        
+        font-family: 'Inter', sans-serif;
+        font-size: 9px !important;
+        font-weight: 900;
+        letter-spacing: 4px;
+        white-space: nowrap !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        z-index: 500;
     }
 
-    /* 2. Настройка пропорций в лукбуке */
+    /* 3. Лукбук: подгоняем элементы, чтобы сумма не превышала 100% */
     .look {
         display: flex;
         flex-direction: row !important;
-        gap: 10px; /* Расстояние между фото и текстом */
+        gap: 10px;
         width: 100%;
-        box-sizing: border-box;
+        padding: 0 10px; /* Внутренние отступы */
+        box-sizing: border-box; /* Чтобы отступы не расширяли блок */
         margin-bottom: 80px;
     }
 
-    /* ФОТО: Сужаем (было 65%, ставим 55%) */
     .look-visual {
         flex: 0 0 50%; 
         max-width: 50%;
     }
 
-    /* ТЕКСТ: Расширяем (было 32%, ставим 40%) */
     .look-side-content {
-        flex: 0 0 40%; 
-        max-width: 40%;
-        word-wrap: break-word;
-        hyphens: auto;
-        padding-top: 10px; /* Чтобы текст не "прилипал" к верху фото */
+        flex: 0 0 45%; 
+        max-width: 45%;
+        word-wrap: break-word; /* Принудительный перенос длинных слов */
+        padding-top: 10px;
     }
 
-    /* 3. Шрифты: чуть-чуть поднимем размер для читаемости */
-    .look-side-content h2 {
-        font-size: 0.8rem !important;
-        line-height: 1.1;
-        margin-bottom: 8px;
-    }
+    .look-side-content h2 { font-size: 0.8rem !important; }
+    .look-side-content p { font-size: 0.65rem !important; }
+    .look-number { font-size: 3rem !important; }
+}
 
-    .look-side-content p {
-        font-size: 0.65rem !important;
-        line-height: 1.3;
-    }
-
-    .look-number {
-        font-size: 3.5rem !important;
-        margin-top: 10px;
-    }
-    /* Настройка бирки для мобильной версии */
     
-@media (max-width: 768px) {
-    .collection-status {
-        position: absolute;
-        /* Смещаем ниже, чтобы не закрывать лицо в Reality */
-        top: 30% !important; 
-        right: -55px !important; /* Регулируй этот параметр, чтобы выставить её по центру стыка */
-        
-        transform: rotate(90deg) !important;
-        transform-origin: center;
-        
-        /* ГЕОМЕТРИЯ: Белая, плотная, длинная */
-        background: #fff !important;
-        color: #000 !important;
-        padding: 8px 30px !important;
-        
-        /* ТЕКСТ: В одну строку и без прозрачности */
-        font-family: 'Inter', sans-serif;
-        font-size: 9px !important;
-        font-weight: 900;
-        letter-spacing: 4px;
-        white-space: nowrap !important; /* ЗАПРЕТ ПЕРЕНОСА БУКВ */
-        text-transform: uppercase;
-        text-decoration: none;
-        opacity: 1 !important; /* Никакой прозрачности */
-        
-        display: flex;
-        align-items: center;
-        z-index: 500;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
+
 }
 
 }
