@@ -291,72 +291,62 @@ footer {
 }
 
     /* ADAPTIVE DESIGN -- Если экран меньше 768px (планшеты и телефоны) */
-
 @media (max-width: 768px) {
-    /* ШАПКА: Жестко держим две колонки */
+    /* Фиксим вылет за края */
+    html, body {
+        overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+        width: 100vw;
+    }
+
+    /* ШАПКА: Две колонки, но без фанатизма */
     .hero {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Оставляем лево и право */
-        height: 60vh; /* Уменьшаем высоту, чтобы не перекрывать скролл */
+        grid-template-columns: 1fr 1fr;
+        height: 70vh; 
     }
 
-    .hero-block {
-        height: 100%;
-    }
-
-    /* Заголовок: делаем его узким, чтобы влез */
-    .title {
-        font-size: 8vw;
-        left: 10px;
-        top: 10px;
-        line-height: 0.9;
-    }
-
-    /* Надписи Expectation/Reality: делаем микро-размер */
-    .hero-label {
-        font-size: 0.5rem;
-        bottom: 15px;
-        letter-spacing: 1px;
-    }
-
-    /* ЛУКБУК: Шахматка на мобильном (фото + текст в ряд) */
+    /* ЛУКБУК: Две колонки на телефоне */
     .look {
         display: flex;
-        flex-direction: row !important; /* ЖЕСТКО В РЯД */
-        gap: 10px;
-        align-items: flex-start;
-        margin-bottom: 80px;
-    }
-
-    .look:nth-child(even) {
-        flex-direction: row-reverse !important; /* Сохраняем шахматку */
+        flex-direction: row !important;
+        gap: 5px; /* Минимальный зазор */
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box; /* Чтобы паддинги не расширяли экран */
     }
 
     .look-visual {
-        flex: 0 0 57%; /* Фото занимает больше места */
+        flex: 0 0 65%; /* Фото забирает больше места */
+        max-width: 65%;
     }
 
+    /* БОКОВОЙ ТЕКСТ: Вот тут главная магия */
     .look-side-content {
-        flex: 0 0 39%; /* Текст узкой колонкой сбоку */
-        padding: 0;
+        flex: 0 0 32%; /* Текст зажат в узкую колонку */
+        max-width: 32%;
+        word-wrap: break-word; /* Силовой перенос слов */
+        overflow-wrap: break-word;
+        hyphens: auto; /* Автопереносы (важно для англ. текста) */
     }
 
     .look-side-content h2 {
-        font-size: 1rem; /* Уменьшаем шрифты до предела */
-        margin-bottom: 5px;
+        font-size: 0.7rem !important; /* Уменьшаем до предела */
+        letter-spacing: 0;
+        line-height: 1;
     }
 
     .look-side-content p {
-        font-size: 0.6rem;
-        line-height: 1.2;
+        font-size: 0.55rem !important; /* Крошечный шрифт, как в документации */
+        line-height: 1.1;
+        opacity: 0.8;
     }
 
-    /* Плашки на фото: делаем их совсем маленькими */
-    .look-text h2 {
-        font-size: 0.8rem;
-        padding: 2px 5px;
+    .look-number {
+        font-size: 3rem !important; /* Уменьшаем номер */
+        margin-top: 5px;
     }
 }
+
 
 </style>
 </head>
