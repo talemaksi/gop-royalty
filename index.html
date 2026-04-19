@@ -319,19 +319,19 @@ footer {
     box-sizing: border-box;
     margin-bottom: 100px;
     min-width: 0; /* Важно для flex-контейнера */
-    gap: 0; /* Если нужен отступ между колонками, используйте проценты с calc() */
+      gap: 16px; /* ← вот ваш отступ */
   }
 
   .look-visual {
-    flex: 0 0 40%;
-    max-width: 40%;
+  flex: 0 0 calc(60% - 8px);   /* 8px — это половина gap */
+  max-width: calc(60% - 8px);
     min-width: 0;
     box-sizing: border-box;
   }
 
   .look-side-content {
-    flex: 0 0 60%;
-    max-width: 60%;
+  flex: 0 0 calc(40% - 8px);   /* 8px — это половина gap */
+  max-width: calc(40% - 8px);
     min-width: 0; /* Важно для flex-детей */
     box-sizing: border-box;
     word-break: break-word;
