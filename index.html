@@ -332,7 +332,7 @@ footer {
         top: 10% !important;
         /* Магия: используем расчет, чтобы она не улетала за край */
         right: calc(0% - 40px) !important; 
-        transform: rotate(90deg) !important;
+        transform: translateY(calc(-50% - 150px))rotate(90deg) !important;
         transform-origin: center;
         
         background: #fff !important;
@@ -347,7 +347,7 @@ footer {
         white-space: nowrap !important;
         text-transform: uppercase;
         text-decoration: none;
-        z-index: 500;
+         z-index: 9999 !important;
     }
 
     /* 3. Лукбук: подгоняем элементы, чтобы сумма не превышала 100% */
