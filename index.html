@@ -286,7 +286,7 @@ body {
     position: absolute;
     top: 50%;
     right: 10%; /* Регулируй этот процент, чтобы бирка была ровно на видео */
-    transform: translateY(-50%) rotate(90deg);
+    transform: translateY(calc(-50% - 150px)) rotate(90deg);
 
     width: max-content !important; /* Чтобы она не схлопывалась и текст влез в одну строку */
     right: -40px !important;  
@@ -339,6 +339,7 @@ footer {
         color: #000 !important;
         padding: 8px 30px !important;
         width: max-content !important; /* Жестко в одну строку */
+        opacity: 1 !important;
         
         font-family: 'Inter', sans-serif;
         font-size: 9px !important;
