@@ -279,81 +279,77 @@ footer {
 
  /* ADAPTIVE DESIGN -- Если экран меньше 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
-    /* 1. Блокировка вылета */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-    /* 2. Бирка (View Collection) */
-    .collection-status {
-        position: absolute !important;
-        top: 20% !important; /* Подняли чуть выше */
-        right: -35px !important; /* Центровка по стыку */
-        transform: rotate(90deg) !important;
-        
-        background: #fff !important;
-        color: #000 !important;
-        padding: 6px 20px !important;
-        width: max-content !important;
-        
-        font-family: 'Inter', sans-serif;
-        font-size: 8px !important;
-        letter-spacing: 3px;
-        white-space: nowrap !important;
-        z-index: 9999 !important;
-    }
+  .collection-status {
+    position: absolute;
+    top: 10%;
+    right: calc(0% - 40px);
+    transform: translateY(calc(-50% - 150px)) rotate(90deg);
+    transform-origin: center;
+    background: #fff;
+    color: #000;
+    padding: 8px 30px;
+    width: max-content;
+    opacity: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-decoration: none;
+    z-index: 9999;
+  }
 
-    /* 3. Лукбук (Жесткая сетка) */
-    .lookbook {
-        padding: 40px 15px !important; /* Поля по бокам */
-        box-sizing: border-box;
-    }
-    
-    .look {
-        display: flex;
-        flex-direction: row !important;
-        gap: 10px;
-        width: 100%;
-        margin-bottom: 80px;
-        box-sizing: border-box;
-    }
+  .lookbook {
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
 
-    /* Фото: 45% */
-    .look-visual {
-        flex: 0 0 45% !important;
-        max-width: 45%;
-    }
+  .look {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+  }
 
-    /* Текст: 50% + Упаковка */
-    .look-side-content {
-        flex: 0 0 50% !important;
-        max-width: 50%;
-        /* ВОТ ТУТ МЫ ВСЁ ИСПРАВИЛИ: */
-        word-break: break-word !important; 
-        overflow-wrap: break-word !important;
-        letter-spacing: -0.2px !important; /* Уплотняем для узкой колонки */
-        line-height: 1.2 !important;
-        padding-right: 5px;
-    }
+  .look-visual {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
 
-    .look-side-content h2 { 
-        font-size: 0.75rem !important; 
-        margin-bottom: 5px;
-        line-height: 1;
-    }
+  .look-side-content {
+    flex: 0 0 50%;
+    max-width: 50%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding-right: 5px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+  }
 
-    .look-side-content p { 
-        font-size: 0.6rem !important; 
-        opacity: 0.8;
-    }
+  .look-side-content h2 {
+    font-size: 0.8rem;
+    white-space: normal;
+  }
 
-    .look-number { 
-        font-size: 2.5rem !important; 
-        margin-top: 5px;
-    }
+  .look-side-content p {
+    font-size: 0.65rem;
+  }
+
+  .look-number {
+    font-size: 3rem;
+  }
 }
 
 
