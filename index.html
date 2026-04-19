@@ -320,6 +320,7 @@ footer {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 100px;
+    min-width: 0; /* ← добавьте эту строку */
   }
 
   .look-visual {
@@ -330,7 +331,6 @@ footer {
 .look-side-content {
   flex: 0 0 60%;
   max-width: 60%;
-  min-width: 0;           /* ← это главное! */
   box-sizing: border-box;
   word-break: break-word;
   overflow-wrap: break-word;
