@@ -366,12 +366,24 @@ footer {
         max-width: 50%;
     }
 
-    .look-side-content {
-        flex: 0 0 45%; 
-        max-width: 45%;
-        word-wrap: break-word; /* Принудительный перенос длинных слов */
-        padding-top: 10px;
-    }
+.look-side-content {
+    flex: 0 0 45%; 
+    max-width: 45%;
+    
+    /* МАГИЯ ДЛЯ УЗКИХ КОЛОНОК */
+    word-break: break-word; /* Разрывает длинные слова, если они не лезут */
+    overflow-wrap: break-word;
+    hyphens: auto;          /* Добавляет дефисы при переносе (для англ. языка) */
+    
+    letter-spacing: 0px !important; /* Убираем лишние отступы между буквами */
+    line-height: 1.2;       /* Немного плотнее строки */
+}
+
+/* Если заголовки (h2) всё еще слишком длинные */
+.look-side-content h2 {
+    font-size: 0.7rem !important; /* Еще чуть меньше */
+    white-space: normal;          /* Разрешаем заголовку быть в две строки */
+}
 
     .look-side-content h2 { font-size: 0.8rem !important; }
     .look-side-content p { font-size: 0.65rem !important; }
