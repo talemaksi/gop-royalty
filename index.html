@@ -379,46 +379,45 @@ footer {
 @media (max-width: 768px) {
     .collection-status {
         position: absolute;
-        top: 50%;
-        right: 15px; /* Прижимаем к правому краю видео */
+        /* Смещаем ниже, чтобы не закрывать лицо в Reality */
+        top: 75% !important; 
+        right: -35px !important; /* Регулируй этот параметр, чтобы выставить её по центру стыка */
         
-        /* ПОВОРОТ И ЦЕНТРОВКА */
-        transform: translateY(-50%) rotate(90deg) !important;
-        transform-origin: right center; /* Точка вращения */
+        transform: rotate(90deg) !important;
+        transform-origin: center;
         
-        /* ГЕОМЕТРИЯ БИРКИ */
+        /* ГЕОМЕТРИЯ: Белая, плотная, длинная */
         background: #fff !important;
         color: #000 !important;
-        padding: 12px 40px !important; /* Увеличиваем длину за счет padding */
-        width: auto !important;
-        height: auto !important;
+        padding: 8px 30px !important;
         
-        /* ТЕКСТ */
+        /* ТЕКСТ: В одну строку и без прозрачности */
         font-family: 'Inter', sans-serif;
         font-size: 9px !important;
         font-weight: 900;
-        letter-spacing: 5px; /* Растягиваем текст для "люксового" вида */
+        letter-spacing: 4px;
+        white-space: nowrap !important; /* ЗАПРЕТ ПЕРЕНОСА БУКВ */
         text-transform: uppercase;
-        white-space: nowrap;
         text-decoration: none;
+        opacity: 1 !important; /* Никакой прозрачности */
         
-        z-index: 200;
         display: flex;
         align-items: center;
-        justify-content: center;
-        
-        box-shadow: -5px 0 20px rgba(0,0,0,0.3); /* Тень слева, так как бирка повернута */
+        z-index: 500;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* Длинная игла-указатель */
+    /* Игла-указатель (черная на белом фоне) */
     .collection-status::before {
         content: "";
-        width: 40px !important; /* Делаем линию длиннее */
+        width: 30px !important;
         height: 1px;
         background: #000 !important;
-        margin-right: 20px !important;
+        margin-right: 15px !important;
         display: inline-block;
     }
+}
+
 }
 
 /* Укоротим линию-указатель для мобилки, чтобы не перекрывала лицо */
