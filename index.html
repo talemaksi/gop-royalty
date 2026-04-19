@@ -344,6 +344,33 @@ footer {
         font-size: 3.5rem !important;
         margin-top: 10px;
     }
+    /* Настройка бирки для мобильной версии */
+.collection-status {
+    /* 1. Сброс старых настроек */
+    right: 10px !important; /* Прижимаем ближе к краю видео */
+    top: 50% !important;
+    transform: translateY(-50%) rotate(90deg) !important;
+    
+    /* 2. Делаем плашку (как на одежде) */
+    background: #fff !important; /* Ярко-белая плашка */
+    color: #000 !important;      /* Черный текст */
+    padding: 6px 12px !important;
+    opacity: 1 !important;       /* Полная видимость */
+    
+    /* 3. Типографика */
+    font-size: 8px !important;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.3); /* Легкая тень для объема */
+}
+
+/* Укоротим линию-указатель для мобилки, чтобы не перекрывала лицо */
+.collection-status::before {
+    width: 20px !important;
+    margin-right: 10px !important;
+    background: #000 !important; /* Линия на самой плашке станет черной */
+}
+
 }
 
 
@@ -372,13 +399,13 @@ footer {
 </div>
     
 <div class="scroll-hint">
-    <span>VIEW COLLECTION</span>
+    <a href="#lookbook" class="collection-status">VIEW COLLECTION</a>
     <div class="arrow"></div>
 </div>
     
 </section>
 
-<section class="lookbook">
+<section class="lookbook" id="lookbook">
 
 <div class="section-title">
 CHAPTER I — THE FALL
@@ -393,8 +420,8 @@ CHAPTER I — THE FALL
             </div>
         </div>
         <div class="look-side-content">
-            <h2>Why choose between an evening gala and your favorite tracksuits? Our upcycled design proves that legacy systems can be refactored without losing their soul.</h2>
-            <p>Tested in Production: stable under palace chandeliers and resilient in the back alley. </p>
+            <h2>Why choose between an evening gown and a tracksuit? This silhouette merges aristocratic structure with street uniform, preserving attitude while shifting context.</h2>
+            <p>Tested in production: stable under chandeliers, resilient in the back alley. </p>
             <span class="look-number">#01</span>
         </div>
     </div>
@@ -408,8 +435,8 @@ CHAPTER I — THE FALL
             </div>
         </div>
         <div class="look-side-content">
-            <h2>Integration testing successful. We’ve verified the compatibility of imperial posture within high-density residential environments. The result: 0 critical bugs.</h2>
-            <p>This look maintains 99.9% uptime regardless of the surroundings.</p>
+            <h2>Imperial posture recontextualized within raw urban geometry. The look holds its authority regardless of environment.</h2>
+            <p>Integration passed: no critical conflicts between elegance and concrete.</p>
             <span class="look-number">#02</span>
         </div>
     </div>
@@ -423,9 +450,8 @@ CHAPTER I — THE FALL
             </div>
         </div>
         <div class="look-side-content">
-            <h2>We took the most granular street habits and wrapped them in a pearl-encrusted UI. By removing the context-dependency of the "pavement," we’ve created a portable solution</h2>
-            <p>Passed Stress Test: Elegance remains intact even during low-resource scenarios.
-</p>
+            <h2>We took the most granular street habits and wrapped them in a pearl-encrusted ornament.</h2>
+            <p>Stress-tested in low-resource conditions: elegance remains consistent.</p>
             <span class="look-number">#03</span>
         </div>
     </div>
@@ -439,8 +465,8 @@ CHAPTER I — THE FALL
             </div>
         </div>
         <div class="look-side-content">
-            <h2>Luxury reassembled from the most durable materials available in the repository. This is the final release: our nobility is an Open-Source project where every stitch is a commit toward aesthetic freedom.</h2>
-            <p>Status: Live.</p>
+            <h2>Luxury reassembled from the most durable materials available in the repository. This is the final release where every stitch is a commit toward aesthetic freedom.</h2>
+            <p>Status: live. Continuous delivery of elegance.</p>
             <span class="look-number">#04</span>
         </div>
     </div>
