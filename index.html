@@ -376,23 +376,49 @@ footer {
     }
     /* Настройка бирки для мобильной версии */
     
-.collection-status {
-    position: absolute;
+@media (max-width: 768px) {
+    .collection-status {
+        position: absolute;
         top: 50%;
-        left: 50%;
-    transform: translateY(-50%) rotate(90deg) !important;
-    
-    /* 2. Делаем плашку (как на одежде) */
-    background: #fff !important; /* Ярко-белая плашка */
-    color: #000 !important;      /* Черный текст */
-    padding: 6px 12px !important;
-    opacity: 1 !important;       /* Полная видимость */
-    
-    /* 3. Типографика */
-    font-size: 8px !important;
-    font-weight: 900;
-    letter-spacing: 2px;
-    box-shadow: 5px 5px 0px rgba(0,0,0,0.3); /* Легкая тень для объема */
+        right: 15px; /* Прижимаем к правому краю видео */
+        
+        /* ПОВОРОТ И ЦЕНТРОВКА */
+        transform: translateY(-50%) rotate(90deg) !important;
+        transform-origin: right center; /* Точка вращения */
+        
+        /* ГЕОМЕТРИЯ БИРКИ */
+        background: #fff !important;
+        color: #000 !important;
+        padding: 12px 40px !important; /* Увеличиваем длину за счет padding */
+        width: auto !important;
+        height: auto !important;
+        
+        /* ТЕКСТ */
+        font-family: 'Inter', sans-serif;
+        font-size: 9px !important;
+        font-weight: 900;
+        letter-spacing: 5px; /* Растягиваем текст для "люксового" вида */
+        text-transform: uppercase;
+        white-space: nowrap;
+        text-decoration: none;
+        
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        box-shadow: -5px 0 20px rgba(0,0,0,0.3); /* Тень слева, так как бирка повернута */
+    }
+
+    /* Длинная игла-указатель */
+    .collection-status::before {
+        content: "";
+        width: 40px !important; /* Делаем линию длиннее */
+        height: 1px;
+        background: #000 !important;
+        margin-right: 20px !important;
+        display: inline-block;
+    }
 }
 
 /* Укоротим линию-указатель для мобилки, чтобы не перекрывала лицо */
