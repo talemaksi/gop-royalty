@@ -380,8 +380,8 @@ footer {
     .collection-status {
         position: absolute;
         /* Смещаем ниже, чтобы не закрывать лицо в Reality */
-        top: 75% !important; 
-        right: -35px !important; /* Регулируй этот параметр, чтобы выставить её по центру стыка */
+        top: 50% !important; 
+        right: -50px !important; /* Регулируй этот параметр, чтобы выставить её по центру стыка */
         
         transform: rotate(90deg) !important;
         transform-origin: center;
@@ -406,25 +406,8 @@ footer {
         z-index: 500;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-
-    /* Игла-указатель (черная на белом фоне) */
-    .collection-status::before {
-        content: "";
-        width: 30px !important;
-        height: 1px;
-        background: #000 !important;
-        margin-right: 15px !important;
-        display: inline-block;
-    }
 }
 
-}
-
-/* Укоротим линию-указатель для мобилки, чтобы не перекрывала лицо */
-.collection-status::before {
-    width: 20px !important;
-    margin-right: 10px !important;
-    background: #000 !important; /* Линия на самой плашке станет черной */
 }
 
 }
