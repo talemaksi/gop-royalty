@@ -352,24 +352,38 @@ footer {
     }
 
     /* 3. Лукбук: подгоняем элементы, чтобы сумма не превышала 100% */
+        /* 1. Общие поля для всего экрана */
+    .lookbook {
+        padding: 40px 20px !important; /* Увеличиваем отступы от краев экрана до 20px */
+        box-sizing: border-box;
+    }
+    
+    /* 2. Контейнер лука: балансируем фото и текст */
     .look {
         display: flex;
         flex-direction: row !important;
-        gap: 10px;
+        gap: 15px; /* Зазор между фото и колонкой текста */
+        align-items: flex-start;
         width: 100%;
-        padding: 0 10px; /* Внутренние отступы */
-        box-sizing: border-box; /* Чтобы отступы не расширяли блок */
-        margin-bottom: 80px;
+        box-sizing: border-box;
+        margin-bottom: 100px;
     }
 
+    /* ФОТО: Уменьшаем, чтобы дать место тексту */
     .look-visual {
-        flex: 0 0 50%; 
-        max-width: 50%;
+        flex: 0 0 45% !important; /* Уменьшили до 45% ширины */
+        max-width: 45%;
     }
 
-.look-side-content {
-    flex: 0 0 45%; 
-    max-width: 45%;
+    /* ТЕКСТ: Теперь он влезет! */
+    .look-side-content {
+        flex: 0 0 50% !important; /* Тексту отдаем половину экрана */
+        max-width: 50%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto; /* Автопереносы слов */
+        padding-right: 5px; /* Микро-отступ, чтобы буквы не касались края */
+    }
     
     /* МАГИЯ ДЛЯ УЗКИХ КОЛОНОК */
     word-break: break-word; /* Разрывает длинные слова, если они не лезут */
