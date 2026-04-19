@@ -276,13 +276,12 @@ footer {
     font-family: 'Playfair Display', serif;
 }
 
-
- /* ADAPTIVE DESIGN -- Если экран меньше 768px (планшеты и телефоны) */
+/* ADAPTIVE DESIGN — Если экран меньше 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
   html, body {
-    width: 100%;
     margin: 0;
     padding: 0;
+    /* Не задаём width: 100%, чтобы избежать конфликтов с вложенными контейнерами */
   }
 
   .collection-status {
@@ -309,38 +308,41 @@ footer {
   .lookbook {
     padding: 40px 20px;
     box-sizing: border-box;
-    min-width: 0;
+    /* min-width: 0; — не требуется, если не flex/grid */
   }
 
   .look {
     display: flex;
     flex-direction: row;
-    gap: 0;
     align-items: flex-start;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 100px;
-    min-width: 0; /* ← добавьте эту строку */
+    min-width: 0; /* Важно для flex-контейнера */
+    gap: 0; /* Если нужен отступ между колонками, используйте проценты с calc() */
   }
 
   .look-visual {
-  flex: 0 0 40%;
-  max-width: 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
-.look-side-content {
-  flex: 0 0 60%;
-  max-width: 60%;
-  min-width: 0; /* ← добавьте эту строку */
-  box-sizing: border-box;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  padding-right: 2px;
-  letter-spacing: 0px;
-  line-height: 1.2;
-  overflow: hidden; /* добавьте это */
-}
+  .look-side-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+    min-width: 0; /* Важно для flex-детей */
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding-right: 0; /* Минимальный или нулевой отступ, чтобы не обрезать текст */
+    letter-spacing: 0px;
+    line-height: 1.2;
+    overflow: visible; /* Не скрываем переполнение, чтобы текст переносился */
+    white-space: normal; /* Разрешаем перенос строк */
+  }
 
   .look-side-content h2 {
     font-size: 0.8rem;
@@ -356,7 +358,6 @@ footer {
     font-size: 3rem;
   }
 }
-
 
 </style>
 </head>
